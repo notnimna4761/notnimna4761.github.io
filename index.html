@@ -126,8 +126,14 @@
         <!-- Contact Section-->
         <section class="page-section" id="contact">
             <div class="container">
-                <form>
+                <form onsubmit="sendEmail(); reset(); return false;">
                 <h3>CONTACT ME  </h3>
+                <!-- Icon Divider-->
+                <div class="divider-custom">
+                    <div class="divider-custom-line"></div>
+                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                    <div class="divider-custom-line"></div>
+                </div>
                 <input type="text" id="name" placeholder="Name" required>
                 <input type="email" id="email" placeholder="Email" required>
                 <input type="text" id="phone" placeholder="Phone Number" required>
@@ -135,6 +141,22 @@
                 <button tvpe="submit">Send</button>
                 </form>
             </div>
+            <script src="https://smtpjs.com/v3/smtp.js"></script>
+            <script>
+                function sendEmail(){
+                    Email.send({
+                            Host : "smtp.gmail.com",
+                            Username : "nimnawijedasa@gmail.com",
+                            Password : "PoopFart12",
+                            To : 'nimnawijedasa@gmail.com',
+                            From : document.getElementById("email").value,
+                            Subject : "Personal Website Contact",
+                            Body : "Name: "+Document
+                        }).then(
+                        message => alert(message)
+                        );
+                }
+            </script>
         </section>
         <!-- Footer-->
         <footer class="footer text-center">
